@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hanta Foods</title>
+  <style>
+    body { font-family: Arial; background: #fffaf0; color: #333; margin: 0; }
+    header, footer { background: #e67e22; color: white; padding: 20px; text-align: center; }
+    nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
+    .section { padding: 20px; display: none; }
+    .active { display: block; }
+    .submenu a { margin-right: 10px; cursor: pointer; color: #e67e22; font-weight: bold; }
+    h2, h3 { color: #e67e22; }
+    ul { list-style-type: square; }
+    iframe { width: 100%; height: 300px; border: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hanta Foods</h1>
+    <nav>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('menu')">Menu</a>
+      <a onclick="showSection('online')">Order Online</a>
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Sections -->
+  <div class="section active" id="home">
+    <h2>Welcome to Hanta Foods</h2>
+    <p>Delicious Ghanaian dishes served fresh in Canada, Accra. Taste tradition, enjoy flavor!</p>
+  </div>
+
+  <div class="section" id="menu">
+    <h2>Our Menu</h2>
+    <div class="submenu">
+      <a onclick="showSubmenu('morning')">Morning Foods</a> |
+      <a onclick="showSubmenu('afternoon')">Afternoon Foods</a>
+    </div>
+
+    <div id="morning" class="submenu-section">
+      <h3>🍳 Morning Foods (Breakfast)</h3>
+      <ul>
+        <li>Hausa Koko & Koose</li>
+        <li>Bread and Egg with Tea</li>
+        <li>Choco Milo with Milk and Bread</li>
+        <li>Oats with Fruits</li>
+      </ul>
+    </div>
+
+    <div id="afternoon" class="submenu-section" style="display: none;">
+      <h3>🍛 Afternoon Foods (Lunch)</h3>
+      <ul>
+        <li>Fufu with Light Soup</li>
+        <li>Banku with Okro Stew</li>
+        <li>Jollof Rice with Chicken</li>
+        <li>Kenkey with Fried Fish and Pepper</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="online">
+    <h2>🛒 Order Online</h2>
+    <p>Call or WhatsApp us to place your order for any of the following meals:</p>
+
+    <h3>Morning Foods</h3>
+    <ul>
+      <li>Hausa Koko & Koose</li>
+      <li>Bread and Egg with Tea</li>
+      <li>Choco Milo with Milk and Bread</li>
+      <li>Oats with Fruits</li>
+    </ul>
+
+    <h3>Afternoon Foods</h3>
+    <ul>
+      <li>Fufu with Light Soup</li>
+      <li>Banku with Okro Stew</li>
+      <li>Jollof Rice with Chicken</li>
+      <li>Kenkey with Fried Fish and Pepper</li>
+    </ul>
+
+    <p>📞 Call: <strong>0257060001</strong><br>
+       📱 WhatsApp: <strong>0557058981</strong></p>
+  </div>
+
+  <div class="section" id="about">
+    <h2>About Hanta Foods</h2>
+    <p>We serve authentic Ghanaian dishes with passion. Located in Canada, Accra, our goal is to keep our culture alive through food.</p>
+  </div>
+
+  <div class="section" id="contact">
+    <h2>Contact & Location</h2>
+    <p>📍 Location: Canada, Accra</p>
+    <p>📞 Call: 0257060001<br>
+       📱 WhatsApp: 0557058981</p>
+
+    <h3>🗺️ Find Us on the Map</h3>
+    <iframe src="https://www.google.com/maps?q=Canada,+Accra,+Ghana&output=embed"></iframe>
+  </div>
+
+  <footer>
+    &copy; 2025 Hanta Foods. All rights reserved.
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function showSubmenu(type) {
+      document.getElementById('morning').style.display = type === 'morning' ? 'block' : 'none';
+      document.getElementById('afternoon').style.display = type === 'afternoon' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
